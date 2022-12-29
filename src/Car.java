@@ -16,7 +16,7 @@ public class Car {
         if (productionCountry == null || productionCountry.equals("")) {
             productionCountry = "default";
         }
-        if (engineVolume <= 0) {
+        if (Double.compare(engineVolume, 0) == 0 || engineVolume < 0) {
             engineVolume = 1.5;
         }
         if (color == null || color.equals("")) {
