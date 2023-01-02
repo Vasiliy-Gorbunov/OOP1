@@ -1,6 +1,19 @@
 package transport;
 
 public class Car {
+
+    private final class Key {
+
+        private final boolean remoteLaunch;
+
+        private final boolean keylessAccess;
+
+        public Key(boolean remoteLaunch, boolean keylessAccess) {
+            this.remoteLaunch = remoteLaunch;
+            this.keylessAccess = keylessAccess;
+        }
+    }
+
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -44,6 +57,7 @@ public class Car {
         if (seatNumbers <= 0) {
             seatNumbers = 4;
         }
+
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
