@@ -1,3 +1,4 @@
+import transport.Bus;
 import transport.Car;
 
 public class Main {
@@ -15,5 +16,11 @@ public class Main {
         hyundai.setActualTyre(6);
         System.out.println(hyundai);
 
+        Bus icarus = new Bus("Icarus", "80", 1980, "USSR", "red");
+        Bus scania = new Bus("Scania", "Bus", 2005, "Швеция", "Жёлтый");
+        Bus mercedes = new Bus("Mercedes", "A1", 2020, "Германия", "Чёрный");
+        System.out.println(icarus);
+        System.out.println(scania);
+        System.out.println(mercedes);
     }
 }
