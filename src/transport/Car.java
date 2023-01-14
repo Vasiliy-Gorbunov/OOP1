@@ -1,6 +1,6 @@
 package transport;
 
-public class Car {
+public class Car extends Transport {
 
     private final class Key {
 
@@ -14,12 +14,10 @@ public class Car {
         }
     }
 
-    private final String brand;
-    private final String model;
+
     private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
+
+
     private String transmission;
     private final String bodyType;
     private String regNumber;
@@ -27,46 +25,17 @@ public class Car {
     private boolean winterTyres;
 
     public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, String regNumber, int seatNumbers, boolean winterTyres) {
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
-            brand = "default";
-        }
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            model = "default";
-        }
-        if (productionCountry == null || productionCountry.isEmpty() || productionCountry.isBlank()) {
-            productionCountry = "default";
-        }
-        if (Double.compare(engineVolume, 0) == 0 || engineVolume < 0) {
-            engineVolume = 1.5;
-        }
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            color = "белый";
-        }
-        if (productionYear <= 0) {
-            productionYear = 2000;
-        }
-        if (transmission == null || transmission.isEmpty() || transmission.isBlank()) {
-            transmission = "Авто";
-        }
+        super(brand, model, productionYear, productionCountry, color);
         if (bodyType == null || bodyType.isEmpty() || bodyType.isBlank()) {
             bodyType = "default";
-        }
-        if (regNumber == null || regNumber.isEmpty() || regNumber.isBlank()) {
-            regNumber = "default";
         }
         if (seatNumbers <= 0) {
             seatNumbers = 4;
         }
-
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        this.transmission = transmission;
+        setEngineVolume(engineVolume);
+        setTransmission(transmission);
         this.bodyType = bodyType;
-        this.regNumber = regNumber;
+        setRegNumber(regNumber);
         this.seatNumbers = seatNumbers;
         this.winterTyres = winterTyres;
     }
@@ -89,10 +58,10 @@ public class Car {
         if (winterTyres) {
             tyre = "зимняя";
         }
-        return "Автомобиль: " + brand + " " + model + "\n " +
-                productionYear + " года выпуска" + "\n " +
-                "Страна сборки: " + productionCountry + "\n " +
-                "Цвет: " + color + "\n " +
+        return "Автомобиль: " + getBrand() + " " + getModel() + "\n " +
+                getProductionYear() + " года выпуска" + "\n " +
+                "Страна сборки: " + getProductionCountry() + "\n " +
+                "Цвет: " + getColor() + "\n " +
                 "Объём двигателя: " + engineVolume + " л." + "\n " +
                 "Тип трансмиссии: " + transmission + "\n " +
                 "Тип кузова: " + bodyType + "\n " +
@@ -100,22 +69,6 @@ public class Car {
                 "Количество мест: " + seatNumbers + "\n " +
                 "Резина: " + tyre + "\n" +
                 separator();
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
     }
 
     public String getBodyType() {
@@ -135,17 +88,6 @@ public class Car {
             engineVolume = 1.5;
         }
         this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            color = "белый";
-        }
-        this.color = color;
     }
 
     public String getTransmission() {

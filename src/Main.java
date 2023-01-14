@@ -14,5 +14,6 @@ public class Main {
         System.out.println(hyundai);
         hyundai.setActualTyre(6);
         System.out.println(hyundai);
+
     }
 }
